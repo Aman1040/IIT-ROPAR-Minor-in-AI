@@ -1,0 +1,100 @@
+{Test case : 9/10 passed }
+
+## Task is to write a python program that convert the human readable expression inta mathematical expression and evaluate it.
+
+def magical_words(word_list):
+    '''
+    You are not required to take input.
+    Input value is given in the `word_list`
+    Use it to complete your program.
+    '''
+    
+    def count_vowels(word):
+        vowels = set("aeiouAEIOU")
+        return sum(1 for char in word if char in vowels)
+    
+    def find_palindromes(words):
+        return [word for word in words if word.lower() == word[::-1].lower()]
+    
+    def find_duplicates(words):
+        seen = set()
+        duplicates = set()
+        for word in words:
+            word_lower = word.lower()
+            if word_lower in seen:
+                duplicates.add(word_lower)
+            else:
+                seen.add(word_lower)
+        return list(duplicates)
+    
+    # Find the word with the highest vowels and handle lexicographic preference
+    def word_with_most_vowels(words):
+        max_vowels = -1
+        best_word = None
+        for word in words:
+            word_vowels = count_vowels(word)
+            if word_vowels > max_vowels or (word_vowels == max_vowels and (best_word is None or word < best_word)):
+                max_vowels = word_vowels
+                best_word = word
+        return best_word
+    
+    # Find the word with the highest vowels
+    word_with_max_vowels = word_with_most_vowels(word_list)
+    
+    # Find palindromes
+    palindromes = find_palindromes(word_list)
+    
+    # Find duplicate words
+    duplicates = find_duplicates(word_list)
+    
+    # Format the output
+    output = f"Highest Vowels: {word_with_max_vowels}\n"
+    
+    if palindromes:
+        output += f"Palindrome: {', '.join(palindromes)}\n"
+    else:
+        output += "Palindrome: None\n"
+        
+    if duplicates:
+        output += f"Duplicate Words: {', '.join(duplicates)}\n"
+    else:
+        output += "Duplicate Words: None\n"
+    
+    print(output)
+
+Sample input : 
+5 plus ( 3 times 2 )
+Sample Output : 
+11.0
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+{Test case : 5/5 passed }
+
+## Given an list of word perform various analysis to identify patterns and characteristics such as vowel count, palindromes,and duplicate frequencies !!!
+
+def evaluate(expression):
+  s=expression
+  newStr = ""
+  for i in s:
+    if(i !=' '):
+        newStr += i
+  newStr=newStr.replace('plus' ,'+')
+  newStr=newStr.replace('minus','-')
+  newStr=newStr.replace('times','*')
+  newStr=newStr.replace('dividedby','/')
+  return(float(eval(newStr)))
+
+Sample input 1:
+california florida atlanta sweden delhi alavala CALIFORNIA
+
+Sample Output 1:
+Highest Vowels: CALIFORNIA
+Palindrome: alavala
+Duplicate Words: california
+
+
+
+
+
+
