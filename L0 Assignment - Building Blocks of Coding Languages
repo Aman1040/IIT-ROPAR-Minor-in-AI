@@ -1,0 +1,47 @@
+CODING QUESTION AND THEIR ANSWER IN PYTHON :
+DATE : 19/08/24
+1. THREE MAX , THREE MIN
+
+CODE :
+def solve(N,arr):
+    newArr = sorted(set(arr))
+    if(len(newArr) < 3):
+        print("Not Possible\nNot Possible")
+    else:
+        min_list = newArr[:3]
+        for i in min_list:
+            print(i,end=" ")
+        print()
+
+        max_list = newArr[-3:]
+        for i in max_list:
+            print(i,end=" ")
+        print()
+INPUT :
+8
+1 2 3 4 2 1 6 5
+OUTPUT:
+1 2 3 
+4 5 6 
+
+
+2. FACTORIAL CODE
+
+CODE :
+
+def solve(N):
+    # Write code here
+    if N==0:
+      return 1
+    ans=1
+    for i in range(1,N+1):
+      ans*=i
+    return ans
+
+print(solve(5))
+
+INPUT :
+5
+OUTPUT: 
+120
+
