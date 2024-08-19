@@ -1,0 +1,17 @@
+Date : 19/08/24
+# 1. 
+
+Code : 
+def calculate_median(scores):
+  '''
+  You are not required to take input for the scores.
+  You just need to use `scores` variable to complete
+  the program.
+  '''
+  # Write code here
+  newarr=sorted(scores)
+  if(len(newarr)%2==0):
+    return (newarr[int(len(newarr)/2)-1]+newarr[int(len(newarr)/2)])/2  
+  return newarr[int(len(newarr)/2)]
+
+
