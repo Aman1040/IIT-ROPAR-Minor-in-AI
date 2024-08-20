@@ -1,4 +1,4 @@
-Date : 19/08/24
+
 # 1. 
 
 Code : 
@@ -13,5 +13,21 @@ def calculate_median(scores):
   if(len(newarr)%2==0):
     return (newarr[int(len(newarr)/2)-1]+newarr[int(len(newarr)/2)])/2  
   return newarr[int(len(newarr)/2)]
+
+#2 .
+
+Code :
+def find_top_student(students_scores):
+    # Complete this function
+    ans=[]
+
+    max_val=max(students_scores.values())
+    for i in students_scores:
+      if(students_scores[i]==max_val):
+        ans.append(i)
+    return ' '.join(ans)
+
+
+  
 
 
