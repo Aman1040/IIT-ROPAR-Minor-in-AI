@@ -1,6 +1,5 @@
 
 # 1. 
-
 Code : 
 def calculate_median(scores):
   '''
