@@ -27,6 +27,34 @@ def find_top_student(students_scores):
     return ' '.join(ans)
 
 
+#3. test case passed 4 out of 5
+def get_most_frequent_word(lines):
+  result=[]
+  words=[]
+  dic={}
+  for line in lines:
+    for i in line.split():
+     
+      if(i.isalpha()):
+        words.append(i.lower())
+      else:
+        
+        words.append(i.replace(".", "").replace(",", "").replace("!", "").lower())
+  for word in words:
+    if word in dic:
+      dic[word]+=1
+    else:
+      dic[word]=1
+  max_val=max(dic.values())
+  for i in dic:
+    if dic[i]==max_val:
+      result.append(i)
+  return result[0]
+
+
+
+
+
 #4.
 def factors(n):
   factor_list=[]
