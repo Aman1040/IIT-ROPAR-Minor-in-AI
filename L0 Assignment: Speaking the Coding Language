@@ -1,4 +1,4 @@
-## Write a program to print multiplication table of num
+## 1 .Write a program to print multiplication table of num
 def solve(num):
    '''You are not supposed to take input.
       Input value is already given to you
@@ -12,7 +12,7 @@ def solve(num):
      i=i+1
 
 
-## Program to print the prime number in single line
+## 2. Program to print the prime number in single line
 
 
 
@@ -38,7 +38,7 @@ def solve(l, r):
    for i in ans:
      print(i,end=' ')
     
-## program for sum of even number
+## 3. program for sum of even number
 def solve(num):
    '''You are not supposed to take input.
       Input value is already given to you
