@@ -1,0 +1,21 @@
+#1 .
+def vigenere_encrypt(plaintext, key):
+   plaintext=plaintext.upper()
+   key=key.upper()
+   ans=''
+   key_len=len(key)
+   
+   j=0
+   for i in range(len(plaintext)):
+     
+     if(plaintext[i].isalpha()):
+       shift=(ord(key[j])-ord('A'))
+       j+=1
+       if(j==key_len):
+         j=0
+       ans+=chr((ord(plaintext[i])-ord('A')+shift)%26+ord('A'))
+
+
+     else:
+       ans+=plaintext[i]
+   return ans
