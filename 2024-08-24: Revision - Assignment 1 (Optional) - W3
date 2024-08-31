@@ -1,6 +1,44 @@
 #1 :
 def build_arrays(nums):
     return [nums[nums[i]] for i in range(len(nums))]
+#2:
+def string_score(s):
+  sum=0
+  n=len(s)
+  for i in range(1,n):
+    sum+=abs(ord(s[i])-ord(s[i-1]))
+   
+  return sum
+#3:
+def biggest_good_digit(num):
+  big_num=0
+  n=len(num)
+  for i in range(1,n):
+    if num[i]==num[i-1] :
+      big_num=max(big_num,int(num[i]))
+  return big_num
+
+
+#4:
+def print_diamond(n):
+  for i in range(1,n+1):
+    for j in range(1,n-i+1):
+      print(' ',end="")
+   
+    for j in range(1,2*i):
+      print('*',end="")
+    print('')
+  for i in range(1,n):
+    for j in range(1,i+1):
+      print(' ',end="")
+   
+    for j in range(1,2*n-2*i):
+      print('*',end="")
+    print('')
+ 
+
+#5:
+
 #6:
 def highest_salary_per_employee(employees_salaries):
   result={}
