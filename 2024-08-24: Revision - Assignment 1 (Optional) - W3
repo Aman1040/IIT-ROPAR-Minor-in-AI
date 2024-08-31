@@ -1,3 +1,10 @@
 #1 :
 def build_arrays(nums):
     return [nums[nums[i]] for i in range(len(nums))]
+#6:
+def highest_salary_per_employee(employees_salaries):
+  result={}
+  for employee in employees_salaries:
+    result[employee]=max(employees_salaries[employee])
+   
+  return result 
