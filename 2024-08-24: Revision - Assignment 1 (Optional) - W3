@@ -46,3 +46,18 @@ def highest_salary_per_employee(employees_salaries):
     result[employee]=max(employees_salaries[employee])
    
   return result 
+#8:
+def palindrome_dictionary(l):
+  def ispalindrome(word):
+    word=word.lower();
+    word=''.join(c for c in word if c.isalpha() or c.isspace())
+    return word==word[::-1]
+  dic={}
+  for line in l:
+    count=0;
+    for word in line.split():
+      if(ispalindrome(word)):
+        count=count+1
+    dic[line]=count
+  return dic
+  
