@@ -21,3 +21,26 @@ print(sort_ascending(arr))
 arr=[5 ,3, 8 ,4 ,2]
 print(sort_descending(arr))
 
+#2 : Organizing the library
+
+def sort_books_ascending(books_list):
+  items=books_list
+  for i in range(len(items)):
+    for j in range(1,len(items)):
+      if items[j][1]<items[j-1][1]:
+        items[j],items[j-1]=items[j-1],items[j]
+  
+
+
+  return items
+def sort_books_descending(books_list):
+  items=books_list
+  for i in range(len(items)):
+    for j in range(1,len(items)):
+      if items[j][1]>items[j-1][1]:
+        items[j],items[j-1]=items[j-1],items[j]
+  
+
+
+  return items
+
