@@ -1,1 +1,58 @@
+#1 : Kth smallest ELememt with Restriction 
 
+def solve(n, nums, k):
+  for i in range(len(nums)):
+    min=i
+    for j in range(i+1,len(nums)):
+      if nums[j]<nums[min]:
+        min=j
+    nums[i],nums[min]=nums[min],nums[i]
+  return nums[k-1]
+  
+    # Write code here
+
+#2 : Sort Positive Number and Move Non -postive to end
+
+def solve(n, nums):
+  def selection_sort(arr):
+    for i in range(len(arr)):
+      min=i
+      for j in range(i+1,len(arr)):
+        if arr[j]<arr[min]:
+          min=j
+      arr[i],arr[min]=arr[min],arr[i]
+    return arr
+
+  pos_arr=[i for i in nums if i>0]
+  pos_arr=selection_sort(pos_arr)
+  
+  non_pos_arr=[i for i in nums if i<=0]
+  ans=pos_arr+non_pos_arr
+  return ans
+
+#3: Custom Sorting by Frequency
+
+def solve(n, nums):
+  def selection_sort(arr):
+    for i in range(len(arr)):
+      min=i
+      for j in range(i+1,len(arr)):
+        if arr[j]<arr[min]:
+          min=j
+      arr[i],arr[min]=arr[min],arr[i]
+    return arr
+
+  dic={}
+  for i in range(len(nums)):
+    if nums[i] not in dic:
+      dic[nums[i]]=1
+    else :
+      dic[nums[i]]+=1
+  for i in range(len(nums)):
+    min=i
+    for j in range(i+1,len(nums)):
+      if (dic[nums[min]]>dic[nums[j]] or (dic[nums[min]] == dic[nums[j]] and nums.index(nums[min])>nums.index(nums[j])) ):
+        min=j
+    nums[i],nums[min]=nums[min],nums[i]
+  return nums
+ 
