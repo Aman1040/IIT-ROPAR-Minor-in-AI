@@ -34,5 +34,14 @@ def solve(arr):
   for i in arr:
     print(i,end=" ")
 
-# 2:
+# 2: Swapped Array Sorting with Bubble Sort - IIT
+
+def solve(nums):
+  n=len(nums)
+  for i in range(n):
+    for j in range(1,n-i):
+      if nums[j-1]>nums[j]:
+        nums[j-1],nums[j]=nums[j],nums[j-1]
+  for i in nums:
+    print(i,end=" ")
 
