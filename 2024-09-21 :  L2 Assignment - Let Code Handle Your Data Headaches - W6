@@ -1,0 +1,51 @@
+
+1. Analyzing Customer Preferences in a 2-State System
+
+def matrix_factorization_2state(E0, M0, time_periods):
+    A = [[0.5, 0.5], [0.25, 0.75]]
+
+    # Initialize E and M
+    E = E0
+    M = M0
+
+    # Perform iterations
+    for _ in range(time_periods):
+        new_E = A[0][0] * E + A[0][1] * M
+        new_M = A[1][0] * E + A[1][1] * M
+        E, M = new_E, new_M
+        print(f"After iteration {_+1}: E = {E:.4f}, M = {M:.4f}")
+    
+    print(f"Final market shares after {time_periods} iterations:")
+    print(f"Region A = {E:.4f}, Region B = {M:.4f}")
+matrix_factorization_2state()
+
+2. Analyzing Customer Preferences in a 3-State System
+
+def matrix_factorization_3state(E0, M0, H0, transition_matrix):
+    threshold = 0.0001
+    E = E0
+    M = M0
+    H = H0
+
+    iterations = 0
+    while True:
+        # Calculate new values for E, M, H
+        new_E = transition_matrix[0][0] * E + transition_matrix[0][1] * M + transition_matrix[0][2] * H
+        new_M = transition_matrix[1][0] * E + transition_matrix[1][1] * M + transition_matrix[1][2] * H
+        new_H = transition_matrix[2][0] * E + transition_matrix[2][1] * M + transition_matrix[2][2] * H
+
+        # Check for convergence
+        if (abs(new_E - E) < threshold and 
+            abs(new_M - M) < threshold and 
+            abs(new_H - H) < threshold):
+            break
+
+        E, M, H = new_E, new_M, new_H
+        iterations += 1
+
+    print(iterations)
+    print(f"{E:.4f} {M:.4f} {H:.4f}")
+matrix_factorization_3state(0.6, 0.3, 0.1,[
+[0.7, 0.2, 0.1],
+[0.1 ,0.8 ,0.1],
+[0.2, 0.2, 0.6]])
